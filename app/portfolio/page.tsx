@@ -14,15 +14,16 @@ function portfolio() {
 
   useGSAP(function () {
     gsap.from(".cardContainer",{
-      transform:"translateX(200vw)",
+      // transform:"translateX(100%)",
+      x: "100%",
       scrollTrigger:{
         trigger: ".cardContainer",
         scroller: "body",
-        // markers: true,
-        start: "top 10%",
-        end: "top -100%",
-        scrub: 3,
-        pin: true
+        markers: true,
+        start: "top top",
+        end: "top -250%",
+        pin: true,
+        scrub: 1
       }
     })
   })
@@ -37,7 +38,7 @@ function portfolio() {
             </div> 
        
 
-          <div className='cardContainer w-screen h-[200vh] flex sm:flex-nowrap flex-wrap  justify-center items-start mt-16 '>
+          <div className='cardContainer w-screen h-screen flex sm:flex-nowrap flex-wrap gap-4 justify-center items-start mt-16 '>
 
               <Card src='/ss1.png' h1='PORTFOLIO' headingOne='USED' headingTwo='HTML,CSS & JS' />
               <Card src='/ss2.png' h1='RECIPE WEB APP' headingOne='USED' headingTwo='NEXT.JS'/>
