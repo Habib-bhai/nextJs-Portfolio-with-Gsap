@@ -1,7 +1,6 @@
 "use client"
 import LoadingScreen from '../components/loader'
 import Navbar from '../components/navbar'
-import Image from 'next/image'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
