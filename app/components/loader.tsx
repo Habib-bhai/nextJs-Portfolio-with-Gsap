@@ -2,12 +2,20 @@
 
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import { useEffect, useState } from 'react';
 
 
 
 export default function LoadingScreen() {
 
-  const width = window.innerWidth
+  const [width, setWidth] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      // Code that uses window
+      setWidth(window.innerWidth);
+    }
+  }, []);
   const breakpoints = {
     sm: 640,
     md: 768
@@ -22,7 +30,7 @@ export default function LoadingScreen() {
             y: 200
         })
 
-        if(width > breakpoints.sm){
+        if(width && width > breakpoints.sm){
 
           gsap.to(".loader", {
             y: -1000,
@@ -33,7 +41,7 @@ export default function LoadingScreen() {
           })
         }
 
-        else if(width < breakpoints.sm){
+        else if(width && width < breakpoints.sm){
           gsap.to(".loader", {
             y: -1000,
             duration: 0.5,

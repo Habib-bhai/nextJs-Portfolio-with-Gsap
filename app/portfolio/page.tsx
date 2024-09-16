@@ -7,20 +7,27 @@ import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import Card from '../components/card'
 import Link from 'next/link'
 import Heading from '../components/Heading'
+import { useEffect, useState } from 'react'
 
 
 gsap.registerPlugin(useGSAP)
 gsap.registerPlugin(ScrollTrigger);
 
 function Portfolio() {
+  const [width, setWidth] = useState<number | null>(null);
 
-  const width = window.innerWidth
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      // Code that uses window
+      setWidth(window.innerWidth);
+    }
+  }, []);
+
   const breakpoints = {
     sm: 640,
     md: 768
   }
-
-  if(width > breakpoints.sm){
+  if(width && width > breakpoints.sm){
   useGSAP(function () {
   
     gsap.from(".cardContainer ",{
@@ -56,7 +63,7 @@ function Portfolio() {
            <Link href={"https://password-generator-brohabib.netlify.app/"} target='_blank'><Card src='/ss5.png' h1='PASSWORD GENERATOR' headingOne='USED' headingTwo='REACT.JS'/></Link>
            <Link href={"https://habib-bhai.github.io/web-based-weather-app/"} target='_blank'><Card src='/ss6.png' h1='WEATHER APP' headingOne='USED' headingTwo='HTML, CSS & JS'/></Link>
            {/* conditional rendering */}
-             {width > breakpoints.sm ? <><Card src='/ss5.png' h1='PASSWORD GENERATOR' headingOne='USED' headingTwo='REACT.JS'/> <Card src='/ss6.png' h1='WEATHER APP' headingOne='USED' headingTwo='HTML, CSS & JS'/><Card src='/ss6.png' h1='WEATHER APP' headingOne='USED' headingTwo='HTML, CSS & JS'/><Card src='/ss6.png' h1='WEATHER APP' headingOne='USED' headingTwo='HTML, CSS & JS'/></>: undefined }
+             {width && width > breakpoints.sm ? <><Card src='/ss5.png' h1='PASSWORD GENERATOR' headingOne='USED' headingTwo='REACT.JS'/> <Card src='/ss6.png' h1='WEATHER APP' headingOne='USED' headingTwo='HTML, CSS & JS'/><Card src='/ss6.png' h1='WEATHER APP' headingOne='USED' headingTwo='HTML, CSS & JS'/><Card src='/ss6.png' h1='WEATHER APP' headingOne='USED' headingTwo='HTML, CSS & JS'/></>: undefined }
           </div>
              
           </div>
