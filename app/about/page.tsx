@@ -8,7 +8,7 @@ import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
 import Heading from "../components/Heading"
 
-function about() {
+function About() {
 
 useGSAP(function(){
   gsap.from(".headingToAnimate",{
@@ -43,7 +43,7 @@ useGSAP(function(){
           <div className="text-white w-screen h-screen bg-gray-900 text-center">
               <h1 className="headingToAnimate sm:text-[52px] sm:ml-0 text-[26px]  sm:absolute sm:right-24 font-bold sm:shadow-2xl sm:shadow-[#00a6ff] shadow-xl shadow-[#00a6ff] ">FRONT END DEVELOPER</h1>
               <div className="sm:w-[450px] w-[380px] font-mono sm:h-32 sm:absolute sm:right-48 sm:top-20 mt-10">
-                <p>Hello Everyone! I'm HABIB ULLAH. A boy of 18 Who has Fallen in "LOVE" with Technology. My Learning to code journey started back in the 2nd year of College, when me and my Buddies won a Science exhibitions 1st prize for our college. In those projects I got the opportunity to code the "Arduino" circuits using C language. That victory ignited my ZEAL, so, I got into the wonderland of Web-Development. Exploring different roadmaps, I started learning JavaScript and Chose "MERN" Stack.So, the journey is been on its peak, exploring and conquering projects and ERRORS, and Am on my way to Become a Profficient FULL-STACK-DEVELOPER.</p>
+                <p>Hello Everyone! Im HABIB ULLAH. A boy of 18 Who has Fallen in &quot;LOVE&quot; with Technology. My Learning to code journey started back in the 2nd year of College, when me and my Buddies won a Science exhibitions 1st prize for our college. In those projects I got the opportunity to code the &quot;Arduino&quot; circuits using C language. That victory ignited my ZEAL, so, I got into the wonderland of Web-Development. Exploring different roadmaps, I started learning JavaScript and Chose &quot;MERN&quot; Stack.So, the journey is been on its peak, exploring and conquering projects and ERRORS, and Am on my way to Become a Profficient FULL-STACK-DEVELOPER.</p>
               </div>              
           </div>
 
@@ -53,4 +53,4 @@ useGSAP(function(){
   )
 }
 
-export default about
+export default About

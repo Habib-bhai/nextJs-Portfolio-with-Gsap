@@ -8,7 +8,7 @@ import gsap from 'gsap';
 export default function LoadingScreen() {
 
   const width = window.innerWidth
-  let breakpoints = {
+  const breakpoints = {
     sm: 640,
     md: 768
   }

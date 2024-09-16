@@ -8,7 +8,7 @@ import Link from "next/link"
 
 function Navbar() {
 
-    let tl = gsap.timeline()
+    const tl = gsap.timeline()
     useGSAP(function () {
         tl.to(".sideBar", {
             x: 0,

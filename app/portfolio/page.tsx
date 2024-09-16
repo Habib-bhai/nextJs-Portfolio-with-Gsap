@@ -12,17 +12,15 @@ import Heading from '../components/Heading'
 gsap.registerPlugin(useGSAP)
 gsap.registerPlugin(ScrollTrigger);
 
-function portfolio() {
+function Portfolio() {
 
   const width = window.innerWidth
-  let breakpoints = {
+  const breakpoints = {
     sm: 640,
     md: 768
   }
 
   if(width > breakpoints.sm){
-
-  
   useGSAP(function () {
   
     gsap.from(".cardContainer ",{
@@ -68,5 +66,5 @@ function portfolio() {
   )
 }
 
-export default portfolio
+export default Portfolio
 
