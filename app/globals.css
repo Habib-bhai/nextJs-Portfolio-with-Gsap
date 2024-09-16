@@ -6,3 +6,68 @@ body {
     overflow-x: hidden ;
 }
 
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+  }
+  
+  fieldset {
+    margin-bottom: 25px;
+    padding: 25px;
+    border: 2px solid #0230d5;
+    border-radius: 12px;
+    background-color: #000000;
+  }
+  
+  legend {
+    font-weight: bold;
+    font-size: 1.3rem;
+    color: #24f4a1;
+  }
+  
+  label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #06a7f7;
+  }
+  
+  input {
+    margin-top: 10px;
+    padding: 12px;
+    border: 2px solid #03a2f2;
+    border-radius: 8px;
+    width: calc(100% - 24px);
+    box-sizing: border-box;
+    background-color: #fdfdff;
+    color: #000000;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  input:focus {
+    border-color: #1c05d1;
+    box-shadow: 0 0 8px #255bff;
+    outline: none;
+  }
+  
+  #formBtn {
+    padding: 15px;
+    background-color:#ef4444 ;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+    
+  #formBtn:hover {
+    background-color: #1f1f1f;
+    transform: scale(1.05);
+  }
+  
