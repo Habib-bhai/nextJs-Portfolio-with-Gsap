@@ -5,6 +5,8 @@ import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import Card from '../components/card'
+import Link from 'next/link'
+import Heading from '../components/Heading'
 
 
 gsap.registerPlugin(useGSAP)
@@ -12,40 +14,51 @@ gsap.registerPlugin(ScrollTrigger);
 
 function portfolio() {
 
+  const width = window.innerWidth
+  let breakpoints = {
+    sm: 640,
+    md: 768
+  }
+
+  if(width > breakpoints.sm){
+
+  
   useGSAP(function () {
-    gsap.from(".cardContainer",{
+  
+    gsap.from(".cardContainer ",{
       // transform:"translateX(100%)",
-      x: "100%",
+      x: "220%",
       scrollTrigger:{
         trigger: ".cardContainer",
         scroller: "body",
-        markers: true,
-        start: "top top",
+        start: "top 10%",
         end: "top -250%",
         pin: true,
-        scrub: 1
+        scrub: 2
       }
     })
   })
+}
+
   return (
     <>
-      <div className='bg-black text-center w-[100%] h-[100%]' >
+      <div className='bg-gray-900 text-center sm:w-[100%] sm:h-[100%] w-screen  h-[310vh] ' >
         <LoadingScreen />
         <Navbar />
 
-          <div >
-          <h1 className='font-bold text-[42px] bg-red-500 tracking-[0.8rem] text-[#01f3a2]'>PORTFOLIO</h1>
-            </div> 
        
+       <Heading heading='PORTFOLIO'/>
 
-          <div className='cardContainer w-screen h-screen flex sm:flex-nowrap flex-wrap gap-4 justify-center items-start mt-16 '>
+          <div className='cardContainer w-screen h-screen  flex sm:flex-nowrap flex-wrap gap-5 justify-center items-start mt-16 '>
 
-              <Card src='/ss1.png' h1='PORTFOLIO' headingOne='USED' headingTwo='HTML,CSS & JS' />
-              <Card src='/ss2.png' h1='RECIPE WEB APP' headingOne='USED' headingTwo='NEXT.JS'/>
-              <Card src='/ss3.png' h1='RESUME BUILDER' headingOne='USED' headingTwo='HTML,CSS & TS'/>
-              <Card src='/ss4.png' h1='CURRENCY CONVERTER' headingOne='USED' headingTwo='REACT.JS'/>
-              <Card src='/ss5.png' h1='PASSWORD GENERATOR' headingOne='USED' headingTwo='REACT.JS'/>
-              <Card src='/ss6.png' h1='WEATHER APP' headingOne='USED' headingTwo='HTML, CSS & JS'/>
+              <Link href={"https://frolicking-axolotl-41acc6.netlify.app/#"} target='_blank'><Card src='/ss1.png' h1='PORTFOLIO' headingOne='USED' headingTwo='HTML,CSS & JS' /></Link>
+           <Link href={"https://simple-recipe-app-next-js.vercel.app/"} target='_blank'><Card src='/ss2.png' h1='RECIPE WEB APP' headingOne='USED' headingTwo='NEXT.JS'/></Link>
+           <Link href={"https://hackathon-milestone-4-six.vercel.app/"} target='_blank'><Card src='/ss3.png' h1='RESUME BUILDER' headingOne='USED' headingTwo='HTML,CSS & TS'/></Link>
+           <Link href={"https://currency-converter-brohabib.netlify.app/"} target='_blank'><Card src='/ss4.png' h1='CURRENCY CONVERTER' headingOne='USED' headingTwo='REACT.JS'/></Link>
+           <Link href={"https://password-generator-brohabib.netlify.app/"} target='_blank'><Card src='/ss5.png' h1='PASSWORD GENERATOR' headingOne='USED' headingTwo='REACT.JS'/></Link>
+           <Link href={"https://habib-bhai.github.io/web-based-weather-app/"} target='_blank'><Card src='/ss6.png' h1='WEATHER APP' headingOne='USED' headingTwo='HTML, CSS & JS'/></Link>
+           {/* conditional rendering */}
+             {width > breakpoints.sm ? <><Card src='/ss5.png' h1='PASSWORD GENERATOR' headingOne='USED' headingTwo='REACT.JS'/> <Card src='/ss6.png' h1='WEATHER APP' headingOne='USED' headingTwo='HTML, CSS & JS'/><Card src='/ss6.png' h1='WEATHER APP' headingOne='USED' headingTwo='HTML, CSS & JS'/><Card src='/ss6.png' h1='WEATHER APP' headingOne='USED' headingTwo='HTML, CSS & JS'/></>: undefined }
           </div>
              
           </div>
