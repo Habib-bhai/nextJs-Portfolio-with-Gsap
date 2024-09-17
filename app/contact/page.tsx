@@ -1,6 +1,5 @@
 import React from 'react'
 import LoadingScreen from '../components/loader'
-import Navbar from '../components/navbar'
 import Heading from '../components/Heading'
 
 function contact() {
@@ -8,8 +7,7 @@ function contact() {
     <>
     <div className='w-screen sm:h-[200vh] h-[105vh] bg-gray-900'>
 
-    <LoadingScreen/>
-    <Navbar/>
+  
     <Heading heading='Contact Me'/>
     
     <div className='w-screen  flex justify-center items-center '>

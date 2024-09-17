@@ -1,16 +1,20 @@
-import Loader from "./components/loader";
-import Navbar from "./components/navbar";
+"use client"
+
 import Link from "next/link";
+// import {useHeadingContext} from "./context/HeadingContext";
 
 
 export default function Home() {
+
+//  let {headingDelay}= useHeadingContext()
+//  let {loaderDelay} = useHeadingContext()
+  
   return (
 
-    <div className="bg-blue-800 w-[100vw] h-screen ">
+    <div className="bg-gray-900 w-[100vw] h-screen ">
 
-      <Loader />
-      <Navbar />
-      <div className="w-screen flex flex-col justify-center items-center mt-[20vh] gap-5  ">
+      
+      <div className="w-screen text-white  flex flex-col justify-center items-center mt-[20vh] gap-5  ">
         <h1 className="text-[52px] font-semibold ">HELLO WORLD!</h1>
         <h3 className="sm:text-[32px] text-[24px] font-medium">Welcome to my NEXT.JS portfolio</h3>
         <div className="flex justify-center gap-3 ">

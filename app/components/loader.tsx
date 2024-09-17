@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 
 
 
-export default function LoadingScreen() {
+export default function LoadingScreen({headingDelay, loadingSDelay}:{headingDelay: number, loadingSDelay:number}) {
 
   const breakpoints = {
     sm: 640,
@@ -27,6 +27,7 @@ export default function LoadingScreen() {
         gsap.to(".heading",{
             transform:"translateX(2)",
             duration: 1,
+            delay:headingDelay,
             ease: "bounce.out",
             y: 200
         })
@@ -35,9 +36,9 @@ export default function LoadingScreen() {
           gsap.to(".loader", {
             y: -1000,
             duration: 1,
-            delay: 1,
-            borderBottomRightRadius:`50%`, 
-            borderBottomLeftRadius:`50%`, 
+            delay: loadingSDelay,
+            borderBottomRightRadius:'50%', 
+            borderBottomLeftRadius:'50%' 
           })
         }
 
@@ -45,9 +46,9 @@ export default function LoadingScreen() {
           gsap.to(".loader", {
             y: -1000,
             duration: 0.5,
-            delay: 1,
-            borderBottomRightRadius:`10rem`, 
-            borderBottomLeftRadius:`10rem`, 
+            delay: loadingSDelay,
+            borderBottomRightRadius:'10rem', 
+            borderBottomLeftRadius:'10rem', 
           })
         }
 

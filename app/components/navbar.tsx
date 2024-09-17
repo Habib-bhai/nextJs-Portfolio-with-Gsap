@@ -1,11 +1,16 @@
 "use client"
-
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
 import Image from "next/image"
 import Link from "next/link"
+import { useEffect } from "react"
 
-function Navbar() {
+
+gsap.registerPlugin(useGSAP)
+
+type SetDelayFunc = React.Dispatch<React.SetStateAction<number>>
+
+function Navbar({setHeading,setLoader}:{setHeading: SetDelayFunc, setLoader: SetDelayFunc}) {
 
     const tl = gsap.timeline()
     useGSAP(function () {
@@ -27,6 +32,15 @@ function Navbar() {
     },[])
     tl.pause()
 
+  const  onClickHandler=()=>{
+    tl.restart()
+    }
+
+    function onCloseHandler() {
+        setHeading(2)
+        setLoader(3)
+        tl.reverse()
+    }
 
     return (
         <>
@@ -41,21 +55,17 @@ function Navbar() {
                     <Link href={"https://www.npmjs.com/~habib-ullah"} target="_blank"><li><Image src={"/programing.png"} alt="npm" height={20} width={20} /> </li></Link>
                 </ul>
                 <Image src={"/menu.png"} alt="hamburger menu" height={30} width={30} className="z-0 cursor-pointer mt-7 bg-white rounded-lg "
-                    onClick={function () {
-                        tl.restart()
-                    }}
+                    onClick={onClickHandler}
                 />
 
-                <div className="sideBar sm:w-[30vw] w-[100vw] h-[70vh] bg-red-600 bg-opacity-50 text-white absolute top-0 right-0 z-50  backdrop-blur-md sm:translate-x-[30vw] translate-x-[100vw] flex flex-col justify-center gap-9  items-center text-2xl font-semibold rounded-2xl">
+                <div className="sideBar sm:w-[30vw] w-[100vw] h-[70vh] bg-red-600 bg-opacity-50 text-white absolute top-0 right-0 z-[100] backdrop-blur-md sm:translate-x-[30vw] translate-x-[100vw] flex flex-col justify-center gap-9  items-center text-2xl font-semibold rounded-2xl">
 
-                    <Link href={"/"} className="link"><h2>Home</h2></Link>
-                    <Link href={"/about"} className="link"><h2>About</h2></Link>
-                    <Link href={"/portfolio"} className="link"><h2>Portfolio</h2></Link>
-                    <Link href={"/contact"} className="link"><h2>Contact Me</h2></Link>
-                    <Image src={"/close.png"} width={30} height={30} alt="close button" className=" close absolute top-0 right-0 m-6 cursor-pointer bg-white rounded-[50%]"
-                        onClick={function () {
-                            tl.reverse()
-                        }}
+                    <Link href={"/"} onClick={onCloseHandler} className="link z-50"><h2>Home</h2></Link>
+                    <Link href={"/about"} onClick={onCloseHandler} className="link z-50"><h2>About</h2></Link>
+                    <Link href={"/portfolio"} onClick={onCloseHandler} className="link z-50"><h2>Portfolio</h2></Link>
+                    <Link href={"/contact"} onClick={onCloseHandler} className="link z-50"><h2>Contact Me</h2></Link>
+                    <Image src={"/close.png"}  width={30} height={30} alt="close button" className=" close absolute top-0 right-0 m-6 cursor-pointer bg-white rounded-[50%] z-50"
+                        onClick={onCloseHandler}
                     />
                 </div>
 

@@ -1,6 +1,5 @@
 "use client"
 import LoadingScreen from '../components/loader'
-import Navbar from '../components/navbar'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import Card from '../components/card'
@@ -9,7 +8,7 @@ import Heading from '../components/Heading'
 import { useEffect, useState } from 'react'
 
 
-// gsap.registerPlugin(useGSAP)
+
 gsap.registerPlugin(ScrollTrigger);
 
 function Portfolio() {
@@ -26,29 +25,35 @@ function Portfolio() {
     sm: 640,
     md: 768
   }
+
   useEffect(() => {
-    if (width > breakpoints.sm) {
-      gsap.from(".cardContainer ",{
-        // transform:"translateX(100%)",
-        x: "220%",
-        scrollTrigger:{
-          trigger: ".cardContainer",
-          scroller: "body",
-          start: "top 10%",
-          end: "top -250%",
-          pin: true,
-          scrub: 2
+    const ctx = gsap.context(() => {
+        if (width > breakpoints.sm) {
+            gsap.from(".cardContainer", {
+                x: "220%",
+                scrollTrigger: {
+                    trigger: ".cardContainer",
+                    scroller: "body",
+                    start: "top 10%",
+                    end: "top -250%",
+                    pin: true,
+                    scrub: 2,
+                },
+            });
         }
-      })
-    }
-  }, [width, breakpoints.sm]);
+    });
+
+    return () => {
+        ctx.revert(); // Cleanup ScrollTrigger context
+    };
+}, [width, breakpoints.sm]);
+
   
  
   return (
     <>
       <div className='bg-gray-900 text-center sm:w-[100%] sm:h-[100%] w-screen  h-[310vh] ' >
-        <LoadingScreen />
-        <Navbar/>       
+      
         
        <Heading heading='PORTFOLIO'/>
 
@@ -59,6 +64,7 @@ function Portfolio() {
            <Link href={"https://currency-converter-brohabib.netlify.app/"} target='_blank'><Card src='/ss4.png' h1='CURRENCY CONVERTER' headingOne='USED' headingTwo='REACT.JS'/></Link>
            <Link href={"https://password-generator-brohabib.netlify.app/"} target='_blank'><Card src='/ss5.png' h1='PASSWORD GENERATOR' headingOne='USED' headingTwo='REACT.JS'/></Link>
            <Link href={"https://habib-bhai.github.io/web-based-weather-app/"} target='_blank'><Card src='/ss6.png' h1='WEATHER APP' headingOne='USED' headingTwo='HTML, CSS & JS'/></Link>
+           
            {/* conditional rendering */}
              {width > breakpoints.sm ? <><Card src='/ss5.png' h1='PASSWORD GENERATOR' headingOne='USED' headingTwo='REACT.JS'/> <Card src='/ss6.png' h1='WEATHER APP' headingOne='USED' headingTwo='HTML, CSS & JS'/><Card src='/ss6.png' h1='WEATHER APP' headingOne='USED' headingTwo='HTML, CSS & JS'/><Card src='/ss6.png' h1='WEATHER APP' headingOne='USED' headingTwo='HTML, CSS & JS'/></>: undefined }
           </div>
