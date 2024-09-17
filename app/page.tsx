@@ -1,5 +1,4 @@
 "use client"
-import Footer from "./components/Footer";
 import LoadingScreen from "./components/loader";
 import Link from "next/link";
 // import {useHeadingContext} from "./context/HeadingContext";

@@ -6,7 +6,6 @@ import Link from 'next/link'
 import Heading from '../components/Heading'
 import LoadingScreen from "../components/loader";
 import { useEffect, useState } from 'react'
-import Footer from '../components/Footer';
 
 
 
