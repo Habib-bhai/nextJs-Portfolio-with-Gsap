@@ -1,12 +1,12 @@
 import React from 'react'
-import LoadingScreen from '../components/loader'
 import Heading from '../components/Heading'
+import LoadingScreen from "../components/loader";
 
 function contact() {
   return (
     <>
     <div className='w-screen sm:h-[200vh] h-[105vh] bg-gray-900'>
-
+    <LoadingScreen/>
   
     <Heading heading='Contact Me'/>
     

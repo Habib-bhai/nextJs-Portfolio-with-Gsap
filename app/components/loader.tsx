@@ -5,8 +5,7 @@ import gsap from 'gsap';
 import { useEffect, useState } from 'react';
 
 
-
-export default function LoadingScreen({headingDelay, loadingSDelay}:{headingDelay: number, loadingSDelay:number}) {
+export default function LoadingScreen() {
 
   const breakpoints = {
     sm: 640,
@@ -27,7 +26,6 @@ export default function LoadingScreen({headingDelay, loadingSDelay}:{headingDela
         gsap.to(".heading",{
             transform:"translateX(2)",
             duration: 1,
-            delay:headingDelay,
             ease: "bounce.out",
             y: 200
         })
@@ -36,7 +34,7 @@ export default function LoadingScreen({headingDelay, loadingSDelay}:{headingDela
           gsap.to(".loader", {
             y: -1000,
             duration: 1,
-            delay: loadingSDelay,
+            delay: 1,
             borderBottomRightRadius:'50%', 
             borderBottomLeftRadius:'50%' 
           })
@@ -46,7 +44,6 @@ export default function LoadingScreen({headingDelay, loadingSDelay}:{headingDela
           gsap.to(".loader", {
             y: -1000,
             duration: 0.5,
-            delay: loadingSDelay,
             borderBottomRightRadius:'10rem', 
             borderBottomLeftRadius:'10rem', 
           })
@@ -59,7 +56,6 @@ export default function LoadingScreen({headingDelay, loadingSDelay}:{headingDela
 
   return (
     <>
-      
         <div className={`loader fixed inset-0 bg-black text-white flex justify-center items-center  transition-transform duration-1000 z-10 `}>
           <h1 className="heading text-2xl sm:text-4xl sm:tracking-[2rem] tracking-[1rem] mx-auto z-10">Loading</h1>
         </div>

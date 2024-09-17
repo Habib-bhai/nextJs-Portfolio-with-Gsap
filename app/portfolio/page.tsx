@@ -1,11 +1,12 @@
 "use client"
-import LoadingScreen from '../components/loader'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import Card from '../components/card'
 import Link from 'next/link'
 import Heading from '../components/Heading'
+import LoadingScreen from "../components/loader";
 import { useEffect, useState } from 'react'
+import Footer from '../components/Footer';
 
 
 
@@ -54,7 +55,7 @@ function Portfolio() {
     <>
       <div className='bg-gray-900 text-center sm:w-[100%] sm:h-[100%] w-screen  h-[310vh] ' >
       
-        
+      <LoadingScreen/>  
        <Heading heading='PORTFOLIO'/>
 
           <div className='cardContainer w-screen h-screen  flex sm:flex-nowrap flex-wrap gap-5 justify-center items-start mt-16 '>
@@ -71,7 +72,7 @@ function Portfolio() {
              
           </div>
       
-      
+     
     </>
   )
 }

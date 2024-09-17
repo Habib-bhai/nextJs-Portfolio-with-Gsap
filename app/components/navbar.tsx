@@ -3,14 +3,12 @@ import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
 import Image from "next/image"
 import Link from "next/link"
-import { useEffect } from "react"
+
 
 
 gsap.registerPlugin(useGSAP)
 
-type SetDelayFunc = React.Dispatch<React.SetStateAction<number>>
-
-function Navbar({setHeading,setLoader}:{setHeading: SetDelayFunc, setLoader: SetDelayFunc}) {
+function Navbar() {
 
     const tl = gsap.timeline()
     useGSAP(function () {
@@ -27,8 +25,6 @@ function Navbar({setHeading,setLoader}:{setHeading: SetDelayFunc, setLoader: Set
         tl.from(".close", {
             opacity: 0
         })
-        
-
     },[])
     tl.pause()
 
@@ -37,8 +33,6 @@ function Navbar({setHeading,setLoader}:{setHeading: SetDelayFunc, setLoader: Set
     }
 
     function onCloseHandler() {
-        setHeading(2)
-        setLoader(3)
         tl.reverse()
     }
 
@@ -60,10 +54,10 @@ function Navbar({setHeading,setLoader}:{setHeading: SetDelayFunc, setLoader: Set
 
                 <div className="sideBar sm:w-[30vw] w-[100vw] h-[70vh] bg-red-600 bg-opacity-50 text-white absolute top-0 right-0 z-[100] backdrop-blur-md sm:translate-x-[30vw] translate-x-[100vw] flex flex-col justify-center gap-9  items-center text-2xl font-semibold rounded-2xl">
 
-                    <Link href={"/"} onClick={onCloseHandler} className="link z-50"><h2>Home</h2></Link>
-                    <Link href={"/about"} onClick={onCloseHandler} className="link z-50"><h2>About</h2></Link>
-                    <Link href={"/portfolio"} onClick={onCloseHandler} className="link z-50"><h2>Portfolio</h2></Link>
-                    <Link href={"/contact"} onClick={onCloseHandler} className="link z-50"><h2>Contact Me</h2></Link>
+                    <Link href={"/"}  className="link z-50"><h2>Home</h2></Link>
+                    <Link href={"/about"}  className="link z-50"><h2>About</h2></Link>
+                    <Link href={"/portfolio"}  className="link z-50"><h2>Portfolio</h2></Link>
+                    <Link href={"/contact"}  className="link z-50"><h2>Contact Me</h2></Link>
                     <Image src={"/close.png"}  width={30} height={30} alt="close button" className=" close absolute top-0 right-0 m-6 cursor-pointer bg-white rounded-[50%] z-50"
                         onClick={onCloseHandler}
                     />

@@ -1,12 +1,10 @@
 "use client"
 import Image from "next/image"
-import LoadingScreen from "../components/loader"
-import Navbar from "../components/navbar"
-// import "@/app/about/comp.css"
 import "../globals.css"
 import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
 import Heading from "../components/Heading"
+import LoadingScreen from "../components/loader";
 
 function About() {
 
@@ -25,7 +23,7 @@ useGSAP(function(){
     <>
     <div className="w-screen h-screen bg-gray-900">
 
-    
+  <LoadingScreen/>    
     <Heading heading="About Me"/>
 
     

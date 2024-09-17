@@ -1,5 +1,6 @@
 "use client"
-
+import Footer from "./components/Footer";
+import LoadingScreen from "./components/loader";
 import Link from "next/link";
 // import {useHeadingContext} from "./context/HeadingContext";
 
@@ -10,9 +11,9 @@ export default function Home() {
 //  let {loaderDelay} = useHeadingContext()
   
   return (
-
+<>
     <div className="bg-gray-900 w-[100vw] h-screen ">
-
+      <LoadingScreen/>
       
       <div className="w-screen text-white  flex flex-col justify-center items-center mt-[20vh] gap-5  ">
         <h1 className="text-[52px] font-semibold ">HELLO WORLD!</h1>
@@ -24,6 +25,8 @@ export default function Home() {
       </div>
 
     </div>
+
+</>
 
   );
 }
