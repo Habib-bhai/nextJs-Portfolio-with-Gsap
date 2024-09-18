@@ -28,13 +28,9 @@ function Navbar() {
     },[])
     tl.pause()
 
-  const  onClickHandler=()=>{
-    tl.restart()
-    }
+  
 
-    function onCloseHandler() {
-        tl.reverse()
-    }
+   
 
     return (
         <>
@@ -49,7 +45,9 @@ function Navbar() {
                     <Link href={"https://www.npmjs.com/~habib-ullah"} target="_blank"><li><Image src={"/programing.png"} alt="npm" height={20} width={20} /> </li></Link>
                 </ul>
                 <Image src={"/menu.png"} alt="hamburger menu" height={30} width={30} className="z-0 cursor-pointer mt-7 bg-white rounded-lg "
-                    onClick={onClickHandler}
+                    onClick={()=>{
+                        tl.restart()
+                        }}
                 />
 
                 <div className="sideBar sm:w-[30vw] w-[100vw] h-[70vh] bg-red-600 bg-opacity-50 text-white absolute top-0 right-0 z-[100] backdrop-blur-md sm:translate-x-[30vw] translate-x-[100vw] flex flex-col justify-center gap-9  items-center text-2xl font-semibold rounded-2xl">
@@ -59,7 +57,9 @@ function Navbar() {
                     <Link href={"/portfolio"}  className="link z-50"><h2>Portfolio</h2></Link>
                     <Link href={"/contact"}  className="link z-50"><h2>Contact Me</h2></Link>
                     <Image src={"/close.png"}  width={30} height={30} alt="close button" className=" close absolute top-0 right-0 m-6 cursor-pointer bg-white rounded-[50%] z-50"
-                        onClick={onCloseHandler}
+                        onClick={ function () {
+                            tl.reverse()
+                        }}
                     />
                 </div>
 

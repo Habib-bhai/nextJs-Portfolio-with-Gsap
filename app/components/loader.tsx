@@ -40,7 +40,7 @@ export default function LoadingScreen() {
           })
         }
 
-        else if(width < breakpoints.sm){
+        if(width < breakpoints.sm){
           gsap.to(".loader", {
             y: -1000,
             duration: 0.5,

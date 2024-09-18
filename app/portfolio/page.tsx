@@ -27,7 +27,7 @@ function Portfolio() {
   }
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
+  
         if (width > breakpoints.sm) {
             gsap.from(".cardContainer", {
                 x: "220%",
@@ -41,11 +41,7 @@ function Portfolio() {
                 },
             });
         }
-    });
 
-    return () => {
-        ctx.revert(); // Cleanup ScrollTrigger context
-    };
 }, [width, breakpoints.sm]);
 
   
